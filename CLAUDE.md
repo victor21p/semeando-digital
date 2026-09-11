@@ -136,9 +136,9 @@
 
 | Validação | Comando | Esperado |
 |---|---|---|
-| Tipos / compilação | _(Etapa 5)_ | zero erros |
-| Lint | _(Etapa 5)_ | zero erros |
-| Smoke (rotas vivas) | `bash scripts/smoke.sh` | 0 falhas e total ≥ última contagem |
+| Tipos / compilação | `npm run build` | zero erros |
+| Lint / Testes | `npm run test -- --run` | zero erros |
+| Smoke (rotas vivas) | `bash scripts/smoke.sh` | 0 falhas e total ≥ 5 |
 | Jornada principal (E2E) | _(Etapa 6)_ | N/N |
 
 ## 8. Documentos: um fato, um lugar

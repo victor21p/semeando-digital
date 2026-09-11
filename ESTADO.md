@@ -15,8 +15,8 @@
 | 2 | Cofre do código (Git + GitHub) | ✅ concluída | 2026-09-11 |
 | 3 | Requisitos | ✅ concluída | 2026-09-11 |
 | 4 | Plano | ✅ concluída | 2026-09-11 |
-| 5 | Fundação | ▶ agora | |
-| 6 | Construção | 🔒 | |
+| 5 | Fundação | ✅ concluída | 2026-09-11 |
+| 6 | Construção | ▶ agora | |
 | 7 | Segurança | 🔒 | |
 | 8 | Publicação e rotina | 🔒 | |
 
@@ -24,16 +24,17 @@
 
 ## ▶ PRÓXIMO PASSO
 
-**ROADMAP 0.1 e 0.2** — conferir ferramentas da stack (Node/Vite/Vitest) e preparar .env e start.sh.
+**ROADMAP 1.1** — Módulo de Tabela Oficial de Valores e Séries (RF-02, RN-02).
 
 ## 🟡 Em andamento (onde parei dentro do passo)
 
-- REQUISITOS.md v1.0 e ROADMAP.md aprovados pelo responsável.
-- Iniciando a Fase 0 (Fundação) da Etapa 5.
+- Fundação técnica completa (Fase 0 do ROADMAP ✅).
+- Smoke tests 5/5 OK e 6 testes unitários no Vitest verdes.
+- Servidor web ativo na porta 3000 com dados 100% sintéticos e cabeçalho oficial.
 
 ## 🙋 Aguardando o usuário (só ele pode fazer)
 
-- Acompanhar a subida do esqueleto e validar no navegador.
+- Visualizar a aplicação no navegador (porta 3000) e aprovar o início do item 1.1 do ROADMAP.
 
 ## ✅ Últimas entregas (a partir da Etapa 6; no máximo 5)
 

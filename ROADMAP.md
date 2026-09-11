@@ -13,11 +13,11 @@
 ## Fase 0 — Fundação (Etapa 5)
 | # | Item | Status | O que o usuário vê |
 |---|---|---|---|
-| 0.1 | Ferramentas da stack instaladas (Node, React, Vite, Vitest) | 🔵 | versões respondendo no terminal |
-| 0.2 | Variáveis de ambiente + `.env.example` preenchido | 🔵 | arquivo de configuração pronto |
-| 0.3 | Esqueleto do sistema + `start.sh` | 🔵 | tela inicial do Semeando Digital abre no navegador |
-| 0.4 | Camada de Armazenamento e Domínio + Seeder com dados 100% sintéticos | 🔵 | alunos e turmas sintéticos carregados |
-| 0.5 | `scripts/smoke.sh` com o 1º teste + `NOTAS.md` | 🔵 | teste rápido validando que o sistema liga |
+| 0.1 | Ferramentas da stack instaladas (Node, React, Vite, Vitest) | ✅ | versões respondendo no terminal |
+| 0.2 | Variáveis de ambiente + `.env.example` preenchido | ✅ | arquivo de configuração pronto |
+| 0.3 | Esqueleto do sistema + `start.sh` | ✅ | tela inicial do Semeando Digital abre no navegador |
+| 0.4 | Camada de Armazenamento e Domínio + Seeder com dados 100% sintéticos | ✅ | alunos e turmas sintéticos carregados |
+| 0.5 | `scripts/smoke.sh` com o 1º teste + `NOTAS.md` | ✅ | teste rápido validando que o sistema liga |
 
 ## Fase 1 — MVP (Etapa 6)
 | # | Item | Requisito | Status | O que o usuário vê |
