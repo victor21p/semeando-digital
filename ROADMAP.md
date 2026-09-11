@@ -22,7 +22,7 @@
 ## Fase 1 — MVP (Etapa 6)
 | # | Item | Requisito | Status | O que o usuário vê |
 |---|---|---|---|---|
-| 1.1 | Tabela Oficial de Valores e Séries | RF-02, RN-02 | 🔵 | Tela com turmas e mensalidades travadas (ex.: 2º-5º ano R$ 375,00) |
+| 1.1 | Tabela Oficial de Valores e Séries | RF-02, RN-02 | ✅ | Tela com turmas e mensalidades travadas e editáveis pela secretaria |
 | 1.2 | Cadastro de Alunos e Responsáveis com Blindagem LGPD | RF-01, RN-04, RN-05 | 🔵 | Formulário completo com campos obrigatórios de emergência e retirada |
 | 1.3 | Motor de Cobrança Dual e Cálculo Automático de Encargos | RF-04, RF-05, RN-01, RN-03 | 🔵 | Taxa de Associado vs Boleto com multa de 2% e juros de 0,033%/dia aplicados |
 | 1.4 | Emissão e Impressão de Contrato Padronizado | RF-03, RN-06 | 🔵 | Contrato oficial unificado pronto para visualização e impressão em PDF |

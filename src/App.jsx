@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './App.css';
-import { DADOS_INSTITUICAO, TABELA_SERIES_PADRAO, calcularEncargos } from './domain/rules';
-import { inicializarStorage, obterAlunos, obterSeries } from './domain/storage';
+import { DADOS_INSTITUICAO, calcularEncargos } from './domain/rules';
+import {
+  inicializarStorage,
+  obterAlunos,
+  obterSeries,
+  atualizarValorSerie,
+  restaurarSeriesPadrao
+} from './domain/storage';
 
 function App() {
   const [activeTab, setActiveTab] = useState('alunos');
@@ -9,6 +15,11 @@ function App() {
   const [series, setSeries] = useState([]);
   const [busca, setBusca] = useState('');
   const [filtroSerie, setFiltroSerie] = useState('todas');
+
+  // Estado de edição da tabela de valores (ROADMAP 1.1)
+  const [editandoSerieId, setEditandoSerieId] = useState(null);
+  const [valorEdicao, setValorEdicao] = useState('');
+  const [feedback, setFeedback] = useState(null);
 
   // Estado da calculadora de encargos (RN-03)
   const [calcValor, setCalcValor] = useState(375.00);
@@ -40,6 +51,38 @@ function App() {
       dataReferencia: calcPagamento
     });
   }, [calcValor, calcVencimento, calcPagamento]);
+
+  // Ações da Tabela Oficial (Item 1.1)
+  const handleIniciarEdicao = (serie) => {
+    setEditandoSerieId(serie.id);
+    setValorEdicao(String(serie.valorPadrao));
+  };
+
+  const handleSalvarValor = (serieId) => {
+    try {
+      const resultado = atualizarValorSerie(serieId, valorEdicao);
+      setSeries(resultado.series);
+      setAlunos(resultado.alunos);
+      setEditandoSerieId(null);
+      setFeedback({
+        tipo: 'sucesso',
+        texto: `Valor atualizado para R$ ${Number(valorEdicao).toFixed(2)} com sucesso!`
+      });
+      setTimeout(() => setFeedback(null), 4000);
+    } catch (err) {
+      setFeedback({ tipo: 'erro', texto: err.message });
+    }
+  };
+
+  const handleRestaurarPadroes = () => {
+    if (window.confirm("Deseja restaurar a tabela para os valores oficiais originais?")) {
+      const seriesPadrao = restaurarSeriesPadrao();
+      setSeries(seriesPadrao);
+      setEditandoSerieId(null);
+      setFeedback({ tipo: 'sucesso', texto: 'Valores oficiais restaurados com sucesso!' });
+      setTimeout(() => setFeedback(null), 4000);
+    }
+  };
 
   return (
     <div className="app-container">
@@ -80,7 +123,7 @@ function App() {
         <div className="stat-card">
           <h3>Mensalidade Oficial (2º-5º)</h3>
           <div className="val" style={{ color: '#16a34a' }}>
-            R$ 375,00
+            R$ {series.find(s => s.id === 'fund_2')?.valorPadrao.toFixed(2) || '375,00'}
           </div>
         </div>
       </div>
@@ -106,6 +149,13 @@ function App() {
           🧮 Motor de Encargos (RN-03)
         </button>
       </nav>
+
+      {/* Feedback Alert */}
+      {feedback && (
+        <div className={`alert-banner alert-${feedback.tipo}`}>
+          {feedback.texto}
+        </div>
+      )}
 
       {/* Conteúdo da Aba Alunos */}
       {activeTab === 'alunos' && (
@@ -179,49 +229,103 @@ function App() {
         </section>
       )}
 
-      {/* Conteúdo da Aba Tabela Oficial */}
+      {/* Conteúdo da Aba Tabela Oficial (Item 1.1) */}
       {activeTab === 'tabela' && (
         <section className="content-card">
-          <h2 style={{ marginTop: 0, fontSize: '1.2rem', color: '#1e3a8a' }}>
-            Tabela Oficial de Séries e Modalidades (Trava de Segurança Financeira)
-          </h2>
-          <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
-            Esta tabela padroniza os valores de matrícula e elimina o risco de contratos emitidos com defasagem financeira (evitando perdas de até R$ 51.000,00 anuais).
-          </p>
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Série / Turma</th>
-                <th>Segmento</th>
-                <th>Modalidade Exigida</th>
-                <th>Valor Travado</th>
-                <th>Regra Aplicada</th>
-              </tr>
-            </thead>
-            <tbody>
-              {series.map(s => (
-                <tr key={s.id}>
-                  <td><strong>{s.nome}</strong></td>
-                  <td>
-                    <span className={`tag ${s.segmento === 'Infantil' ? 'tag-infantil' : 'tag-fundamental'}`}>
-                      {s.segmento}
-                    </span>
-                  </td>
-                  <td>{s.modalidade}</td>
-                  <td>
-                    <span style={{ fontSize: '1.05rem', fontWeight: 700, color: '#16a34a' }}>
-                      R$ {s.valorPadrao.toFixed(2)}
-                    </span>
-                  </td>
-                  <td style={{ fontSize: '0.85rem', color: '#64748b' }}>
-                    {['fund_2', 'fund_3', 'fund_4', 'fund_5'].includes(s.id)
-                      ? '🛡️ Travado: valor oficial do Ensino Fundamental'
-                      : 'Estatuto escolar regular'}
-                  </td>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12, marginBottom: 16 }}>
+            <div>
+              <h2 style={{ margin: 0, fontSize: '1.2rem', color: '#1e3a8a' }}>
+                Tabela Oficial de Séries e Mensalidades (Trava de Segurança)
+              </h2>
+              <p style={{ margin: '4px 0 0 0', color: '#64748b', fontSize: '0.85rem' }}>
+                Valores padronizados que alimentam os novos contratos, eliminando erros manuais de digitação.
+              </p>
+            </div>
+            <button
+              className="btn-danger-outline"
+              onClick={handleRestaurarPadroes}
+              title="Voltar aos valores oficiais padrão"
+            >
+              Restaurar Padrões
+            </button>
+          </div>
+
+          <div style={{ overflowX: 'auto' }}>
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Série / Turma</th>
+                  <th>Segmento</th>
+                  <th>Modalidade Exigida</th>
+                  <th>Valor Travado</th>
+                  <th>Regra Aplicada</th>
+                  <th style={{ textAlign: 'center' }}>Ação</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {series.map(s => (
+                  <tr key={s.id}>
+                    <td><strong>{s.nome}</strong></td>
+                    <td>
+                      <span className={`tag ${s.segmento === 'Infantil' ? 'tag-infantil' : 'tag-fundamental'}`}>
+                        {s.segmento}
+                      </span>
+                    </td>
+                    <td>{s.modalidade}</td>
+                    <td>
+                      {editandoSerieId === s.id ? (
+                        <div className="edit-input-group">
+                          <span>R$</span>
+                          <input
+                            type="number"
+                            step="0.01"
+                            className="edit-val-input"
+                            value={valorEdicao}
+                            onChange={(e) => setValorEdicao(e.target.value)}
+                            autoFocus
+                          />
+                        </div>
+                      ) : (
+                        <span style={{ fontSize: '1.05rem', fontWeight: 700, color: '#16a34a' }}>
+                          R$ {s.valorPadrao.toFixed(2)}
+                        </span>
+                      )}
+                    </td>
+                    <td style={{ fontSize: '0.85rem', color: '#64748b' }}>
+                      {['fund_2', 'fund_3', 'fund_4', 'fund_5'].includes(s.id)
+                        ? '🛡️ Travado: tabela oficial do Fundamental'
+                        : 'Estatuto escolar regular'}
+                    </td>
+                    <td style={{ textAlign: 'center' }}>
+                      {editandoSerieId === s.id ? (
+                        <div style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
+                          <button
+                            className="btn-primary"
+                            onClick={() => handleSalvarValor(s.id)}
+                          >
+                            Salvar
+                          </button>
+                          <button
+                            className="btn-secondary"
+                            onClick={() => setEditandoSerieId(null)}
+                          >
+                            Cancelar
+                          </button>
+                        </div>
+                      ) : (
+                        <button
+                          className="btn-secondary"
+                          onClick={() => handleIniciarEdicao(s)}
+                        >
+                          Editar Valor
+                        </button>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
 

@@ -59,3 +59,47 @@ export function salvarSeries(novasSeries) {
   localStorage.setItem(STORAGE_KEYS.SERIES, JSON.stringify(novasSeries));
   return novasSeries;
 }
+
+export function atualizarValorSerie(serieId, novoValor) {
+  const valor = Number(novoValor);
+  if (isNaN(valor) || valor <= 0) {
+    throw new Error('O valor da mensalidade deve ser um número positivo maior que zero.');
+  }
+
+  const series = obterSeries();
+  const index = series.findIndex(s => s.id === serieId);
+  if (index === -1) {
+    throw new Error(`Série com ID ${serieId} não encontrada.`);
+  }
+
+  series[index] = {
+    ...series[index],
+    valorPadrao: Number(valor.toFixed(2)),
+    atualizadoEm: new Date().toISOString()
+  };
+
+  salvarSeries(series);
+
+  // Também sincroniza o valor dos alunos matriculados nessa turma
+  const alunos = obterAlunos();
+  let alterouAlunos = false;
+  const alunosAtualizados = alunos.map(aluno => {
+    if (aluno.serieId === serieId) {
+      alterouAlunos = true;
+      return { ...aluno, valorMensalidade: Number(valor.toFixed(2)) };
+    }
+    return aluno;
+  });
+
+  if (alterouAlunos) {
+    localStorage.setItem(STORAGE_KEYS.ALUNOS, JSON.stringify(alunosAtualizados));
+  }
+
+  return { series, alunos: alunosAtualizados };
+}
+
+export function restaurarSeriesPadrao() {
+  localStorage.setItem(STORAGE_KEYS.SERIES, JSON.stringify(TABELA_SERIES_PADRAO));
+  return TABELA_SERIES_PADRAO;
+}
+

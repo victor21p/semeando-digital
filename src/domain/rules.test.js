@@ -61,4 +61,11 @@ describe('Regras de Negócio - Semeando Digital', () => {
     expect(validacao.erros.some(e => e.includes('Hospital/UPA'))).toBe(true);
     expect(validacao.erros.some(e => e.includes('pessoas autorizadas'))).toBe(true);
   });
+
+  it('RF-02 / RN-02: Deve rejeitar atualização de mensalidade com valor negativo ou zerado', async () => {
+    const { atualizarValorSerie } = await import('./storage');
+    expect(() => atualizarValorSerie('fund_2', 0)).toThrow(/maior que zero/);
+    expect(() => atualizarValorSerie('fund_2', -50)).toThrow(/maior que zero/);
+    expect(() => atualizarValorSerie('fund_2', 'invalido')).toThrow(/maior que zero/);
+  });
 });

@@ -24,22 +24,22 @@
 
 ## ▶ PRÓXIMO PASSO
 
-**ROADMAP 1.1** — Módulo de Tabela Oficial de Valores e Séries (RF-02, RN-02).
+**ROADMAP 1.2** — Cadastro de Alunos e Responsáveis com Blindagem LGPD (RF-01, RN-04, RN-05).
 
 ## 🟡 Em andamento (onde parei dentro do passo)
 
-- Fundação técnica completa (Fase 0 do ROADMAP ✅).
-- Smoke tests 5/5 OK e 6 testes unitários no Vitest verdes.
-- Servidor web ativo na porta 3000 com dados 100% sintéticos e cabeçalho oficial.
+- Item 1.1 concluído: Tabela Oficial de Valores e Séries funcional, com edição e validação de valores.
+- 7 testes automatizados passando no Vitest e smoke test 5/5 OK.
 
 ## 🙋 Aguardando o usuário (só ele pode fazer)
 
-- Visualizar a aplicação no navegador (porta 3000) e aprovar o início do item 1.1 do ROADMAP.
+- Experimentar a edição de valor na aba "Tabela Oficial de Valores" no navegador.
 
 ## ✅ Últimas entregas (a partir da Etapa 6; no máximo 5)
 
 | Data | Entrega | Prova |
 |---|---|---|
+| 2026-09-11 | Item 1.1: Tabela Oficial com Edição e Trava | Vitest 7/7, Smoke 5/5 |
 
 ## 📝 Anotado para depois
 
