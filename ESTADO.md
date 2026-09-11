@@ -5,15 +5,15 @@
 > daqui; o `git log` guarda).
 
 **Projeto:** Semeando Digital · **Pasta:** /workspaces/codespaces-react · **Última atualização:** 2026-09-11
-**Salvo no GitHub?** ainda não (Etapa 2) · **No ar?** ainda não (Etapa 8)
+**Salvo no GitHub?** sim (privado em victor21p/semeando-digital) · **No ar?** ainda não (Etapa 8)
 
 ## 🧭 Trilha
 
 | # | Etapa | Status | Concluída em |
 |---|---|---|---|
 | 1 | Boas-vindas e computador pronto | ✅ concluída | 2026-09-11 |
-| 2 | Cofre do código (Git + GitHub) | ▶ agora | |
-| 3 | Requisitos | 🔒 | |
+| 2 | Cofre do código (Git + GitHub) | ✅ concluída | 2026-09-11 |
+| 3 | Requisitos | ▶ agora | |
 | 4 | Plano | 🔒 | |
 | 5 | Fundação | 🔒 | |
 | 6 | Construção | 🔒 | |
@@ -24,16 +24,16 @@
 
 ## ▶ PRÓXIMO PASSO
 
-**Etapa 2, passo 2.5** — criar repositório privado no GitHub e salvar o primeiro commit.
+**Etapa 3, bloco A** — alinhar os requisitos coletados nos documentos com o usuário para o REQUISITOS.md.
 
 ## 🟡 Em andamento (onde parei dentro do passo)
 
-- Identidade git configurada (victor21p / victorgabrielp2018@gmail.com).
-- Arquivo .env blindado no .gitignore e .env.example criado.
+- Repositório remoto privado sincronizado via SSH sem erros.
+- Dados preliminares extraídos de Coleta de Dados.pdf e Narrativas.pdf.
 
 ## 🙋 Aguardando o usuário (só ele pode fazer)
 
-- Confirmar a criação do repositório privado no GitHub (`semeando-digital`).
+- Confirmar o rascunho dos requisitos centrais (dor, usuários e regras de negócio).
 
 ## ✅ Últimas entregas (a partir da Etapa 6; no máximo 5)
 
