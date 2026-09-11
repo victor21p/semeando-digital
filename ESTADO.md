@@ -13,8 +13,8 @@
 |---|---|---|---|
 | 1 | Boas-vindas e computador pronto | ✅ concluída | 2026-09-11 |
 | 2 | Cofre do código (Git + GitHub) | ✅ concluída | 2026-09-11 |
-| 3 | Requisitos | ▶ agora | |
-| 4 | Plano | 🔒 | |
+| 3 | Requisitos | ✅ concluída | 2026-09-11 |
+| 4 | Plano | ▶ agora | |
 | 5 | Fundação | 🔒 | |
 | 6 | Construção | 🔒 | |
 | 7 | Segurança | 🔒 | |
@@ -24,16 +24,17 @@
 
 ## ▶ PRÓXIMO PASSO
 
-**Etapa 3, bloco A** — alinhar os requisitos coletados nos documentos com o usuário para o REQUISITOS.md.
+**Etapa 4, passo 4.4** — aprovação do ROADMAP.md pelo usuário.
 
 ## 🟡 Em andamento (onde parei dentro do passo)
 
-- Repositório remoto privado sincronizado via SSH sem erros.
-- Dados preliminares extraídos de Coleta de Dados.pdf e Narrativas.pdf.
+- REQUISITOS.md aprovado (v1.0) pelo responsável.
+- ROADMAP.md criado com Fases 0 (Fundação), 1 (MVP) e S (Segurança/Publicação).
+- CLAUDE.md §7 atualizado com arquitetura e stack.
 
 ## 🙋 Aguardando o usuário (só ele pode fazer)
 
-- Confirmar o rascunho dos requisitos centrais (dor, usuários e regras de negócio).
+- Aprovar o ROADMAP.md para liberarmos a Etapa 5 (Fundação).
 
 ## ✅ Últimas entregas (a partir da Etapa 6; no máximo 5)
 

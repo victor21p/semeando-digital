@@ -129,9 +129,9 @@
 
 ## 7. Contexto do projeto (preenchido nas Etapas 4 e 5)
 
-- **O que é:** _(Etapa 4)_
-- **Stack:** _(Etapa 4)_
-- **Princípio de arquitetura:** _(Etapa 4)_
+- **O que é:** Sistema Integrado de Gestão Escolar (Semeando Digital) para centralizar matrículas, contratos e cobrança dual do Centro Educacional Semeando.
+- **Stack:** React 18, Vite, CSS responsivo, armazenamento estruturado local com suporte a dados sintéticos, Vitest.
+- **Princípio de arquitetura:** Domínio isolado da UI (POO); regras de negócio invioláveis (multa 2%, juros 0,033%/dia, LGPD Art. 14); valores de contrato travados pela tabela oficial; dados 100% sintéticos em desenvolvimento.
 - **Como ligar:** `bash start.sh` _(Etapa 5)_
 
 | Validação | Comando | Esperado |

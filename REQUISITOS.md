@@ -1,9 +1,9 @@
 # REQUISITOS — Semeando Digital
 
-| Status | ☐ RASCUNHO · ☑ EM REVISÃO · ☐ APROVADO |
+| Status | ☐ RASCUNHO · ☐ EM REVISÃO · ☑ APROVADO |
 |---|---|
-| Versão | 0.2 |
-| Aprovado por / em | — |
+| Versão | 1.0 |
+| Aprovado por / em | Victor Gabriel Conceição Pereira / 2026-09-11 |
 
 > Nenhum código antes de APROVADO. Mudança depois disso vira versão nova (§15), com aprovação.
 
@@ -134,4 +134,5 @@
 | Versão | Data | O que mudou | Aprovado por |
 |---|---|---|---|
 | 0.1 | 2026-09-11 | Rascunho inicial baseado nos PDFs de coleta e narrativas | Victor Gabriel |
-| 0.2 | 2026-09-11 | Documento completo com RFs, RNs, Stack e corte de MVP | Em revisão |
+| 0.2 | 2026-09-11 | Documento completo com RFs, RNs, Stack e corte de MVP | Victor Gabriel |
+| 1.0 | 2026-09-11 | Escopo formal aprovado para o MVP do Semeando Digital | Victor Gabriel Conceição Pereira |
