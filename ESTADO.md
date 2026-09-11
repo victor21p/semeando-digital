@@ -14,8 +14,8 @@
 | 1 | Boas-vindas e computador pronto | ✅ concluída | 2026-09-11 |
 | 2 | Cofre do código (Git + GitHub) | ✅ concluída | 2026-09-11 |
 | 3 | Requisitos | ✅ concluída | 2026-09-11 |
-| 4 | Plano | ▶ agora | |
-| 5 | Fundação | 🔒 | |
+| 4 | Plano | ✅ concluída | 2026-09-11 |
+| 5 | Fundação | ▶ agora | |
 | 6 | Construção | 🔒 | |
 | 7 | Segurança | 🔒 | |
 | 8 | Publicação e rotina | 🔒 | |
@@ -24,17 +24,16 @@
 
 ## ▶ PRÓXIMO PASSO
 
-**Etapa 4, passo 4.4** — aprovação do ROADMAP.md pelo usuário.
+**ROADMAP 0.1 e 0.2** — conferir ferramentas da stack (Node/Vite/Vitest) e preparar .env e start.sh.
 
 ## 🟡 Em andamento (onde parei dentro do passo)
 
-- REQUISITOS.md aprovado (v1.0) pelo responsável.
-- ROADMAP.md criado com Fases 0 (Fundação), 1 (MVP) e S (Segurança/Publicação).
-- CLAUDE.md §7 atualizado com arquitetura e stack.
+- REQUISITOS.md v1.0 e ROADMAP.md aprovados pelo responsável.
+- Iniciando a Fase 0 (Fundação) da Etapa 5.
 
 ## 🙋 Aguardando o usuário (só ele pode fazer)
 
-- Aprovar o ROADMAP.md para liberarmos a Etapa 5 (Fundação).
+- Acompanhar a subida do esqueleto e validar no navegador.
 
 ## ✅ Últimas entregas (a partir da Etapa 6; no máximo 5)
 
@@ -43,4 +42,4 @@
 
 ## 📝 Anotado para depois
 
-- Sistema Integrado de Gestão Escolar (Semeando Digital) para o Centro Educacional Semeando (150 alunos). Centralizar matrículas, substituir 750 docs/ano em Word por banco central, unificar cobrança dual (taxa de associado vs. boleto com juros de 0,033%/dia e multa de 2%) e blindar dados conforme o Art. 14 da LGPD com dados 100% sintéticos em desenvolvimento.
+- _(vazio — escopo transferido para REQUISITOS.md e ROADMAP.md)_
