@@ -1,70 +1,66 @@
-# GitHub Codespaces ♥️ React
+# 🌱 Semeando Digital
 
-Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
+> **Sistema Integrado de Gestão Escolar e Centralização de Dados**  
+> Desenvolvido para o **Centro Educacional Semeando** (Bairro Pontal da Ilha, São Luís - MA).  
+> Projeto comunitário (PIC) do curso de **Engenharia de Software da UNDB**.  
+> **Responsável / Arquiteto de Domínio:** Victor Gabriel Conceição Pereira.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+---
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+## 🎯 Objetivo e Contexto
 
-This project was bootstrapped for you with [Vite](https://vitejs.dev/).
+O **Semeando Digital** foi projetado para substituir a gestão escolar manual anterior (que dependia de cerca de 750 arquivos Word por ano processados por apenas 3 pessoas na secretaria) por um sistema centralizado, seguro e auditável.
 
-## Available Scripts
+### Principais Dores Resolvidas:
+1. **Fim do Rombo Financeiro:** Bloqueio de divergências entre contratos emitidos e a tabela oficial de mensalidades (evitando perdas de até R$ 51.000,00 anuais, equivalente a 11% da receita).
+2. **Dualidade de Receitas:** Gestão unificada da **Taxa de Associado** (Educação Infantil) e **Mensalidade com Boleto** (Ensino Fundamental).
+3. **Blindagem LGPD (Art. 14 da Lei nº 13.709/2018):** Proteção integral de dados sensíveis de menores, com campos mandatórios de hospital de emergência conveniado e pessoas autorizadas para retirada da criança.
+4. **Ambiente com 100% Dados Sintéticos:** Nenhum dado real de crianças da comunidade é utilizado no desenvolvimento ou testes.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Como Executar o Protótipo
 
-We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
+### 1. Iniciar o Sistema (Servidor Web)
+```bash
+bash start.sh
+```
+Acesse a aplicação no navegador em: **`http://localhost:3000`**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000/](http://localhost:3000/) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
+### 2. Rodar os Testes de Integridade (Smoke Tests)
+```bash
+bash scripts/smoke.sh
+```
 
-The page will reload automatically when you make changes.\
-You may also see any lint errors in the console.
+### 3. Rodar a Suíte de Testes Unitários
+```bash
+npm run test -- --run
+```
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🖥️ O que já está acessível no Protótipo:
 
-### `npm run build`
+* **📋 Painel de Alunos:** Listagem e busca rápida em tempo real de **150 alunos sintéticos**, com filtros por turma/série e status financeiro.
+* **💰 Tabela Oficial de Valores (RN-02):** Trava de segurança que estabelece a mensalidade oficial (R$ 375,00 para 2º ao 5º ano) com formulário para reajustes oficiais e botão de restauração.
+* **🧮 Motor de Encargos por Atraso (RN-03):** Cálculo automático em tempo real de **multa de 2%** e **juros de mora de 0,033% ao dia**.
+* **🛡️ Identidade Institucional Única:** Razão social, CNPJ e endereço unificados para emissão documental padronizada.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📚 Documentos de Governança do Projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* 🧭 [`ESTADO.md`](./ESTADO.md) — Painel de controle e onde paramos em cada etapa.
+* 📋 [`REQUISITOS.md`](./REQUISITOS.md) — Requisitos funcionais, não funcionais e regras de negócio aprovados (v1.0).
+* 🗺️ [`ROADMAP.md`](./ROADMAP.md) — Fases de desenvolvimento e ordem de construção do MVP.
+* 📝 [`NOTAS.md`](./NOTAS.md) — Arquitetura, decisões técnicas e histórico de soluções.
+* 📜 [`CLAUDE.md`](./CLAUDE.md) — Regras de conduta, segurança e protocolos de sessão.
 
-## Learn More
+---
 
-You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
+## 🛠️ Stack Tecnológica
 
-To learn Vitest, a Vite-native testing framework, go to [Vitest documentation](https://vitest.dev/guide/)
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://sambitsahoo.com/blog/vite-code-splitting-that-works.html](https://sambitsahoo.com/blog/vite-code-splitting-that-works.html)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf](https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf)
-
-### Advanced Configuration
-
-This section has moved here: [https://vitejs.dev/guide/build.html#advanced-base-options](https://vitejs.dev/guide/build.html#advanced-base-options)
-
-### Deployment
-
-This section has moved here: [https://vitejs.dev/guide/build.html](https://vitejs.dev/guide/build.html)
-
-### Troubleshooting
-
-This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](https://vitejs.dev/guide/troubleshooting.html)
+* **Frontend:** React 18, Vite 8, CSS3 Moderno e Responsivo.
+* **Domínio & Regras:** Camada de regras puras desacoplada da UI (POO).
+* **Armazenamento:** LocalStorage estruturado com gerador de sementes sintéticas (*seeder*).
+* **Testes:** Vitest e Testing Library.
